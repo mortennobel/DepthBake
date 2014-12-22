@@ -11,7 +11,6 @@
 #include "BakeCamera.h"
 #include "CameraController.h"
 
-
 using namespace kick;
 
 void rescaleAndCenter(MeshRenderer *meshRenderer, Bounds3 &bounds);
@@ -20,10 +19,10 @@ int main(int argc, char * argv[])
 {
 
 
-    bool showPlane = false; // todo
+    bool showPlane = true;
 
     WindowConfig windowConfig;
-    int screenWidth = 512;
+    int screenWidth = 32;
     windowConfig.height = screenWidth;
     windowConfig.width = screenWidth;
 
@@ -55,9 +54,8 @@ int main(int argc, char * argv[])
     meshRenderer->setMaterial(material);
 
     if (showPlane){
-        auto plane = scene->createPlane();
-        plane->transform()->setLocalScale(glm::vec3(100));
-        plane->transform()->setLocalRotationEuler(glm::vec3{0,-M_PI/4,0});
+        auto plane = scene->createCube(nullptr,1.0f);
+        plane->transform()->setLocalScale(glm::vec3(1000.0f,0.0001f,1000.0f));
         plane->setMaterial(material);
     }
 
