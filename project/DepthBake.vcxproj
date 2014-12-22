@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{245B3E1D-16E3-F740-A9E9-590C35535244}</ProjectGuid>
+    <RootNamespace>DepthBake</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\bin\release\</OutDir>
+    <IntDir>obj\x32\Release\</IntDir>
+    <TargetName>DepthBake</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\bin\release\</OutDir>
+    <IntDir>obj\x64\Release\</IntDir>
+    <TargetName>DepthBake</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\bin\debug\</OutDir>
+    <IntDir>obj\x32\Debug\</IntDir>
+    <TargetName>DepthBake</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\bin\debug\</OutDir>
+    <IntDir>obj\x64\Debug\</IntDir>
+    <TargetName>DepthBake</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\..\glew-1.11.0\lib\Release\Win32\glew32s.lib;..\..\SDL2-2.0.3\lib\x86\SDL2.lib;..\..\SDL2-2.0.3\lib\x86\SDL2main.lib;..\..\SDL2_image-2.0.0\lib\x86\SDL2_image.lib;OpenGL32.lib;..\..\kick\lib\debug\kick.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DepthBake.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\..\glew-1.11.0\lib\Release\Win32\glew32s.lib;..\..\SDL2-2.0.3\lib\x86\SDL2.lib;..\..\SDL2-2.0.3\lib\x86\SDL2main.lib;..\..\SDL2_image-2.0.0\lib\x86\SDL2_image.lib;OpenGL32.lib;..\..\kick\lib\debug\kick.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DepthBake.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)DepthBake.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>DEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\glew-1.11.0\lib\Release\Win32\glew32s.lib;..\..\SDL2-2.0.3\lib\x86\SDL2.lib;..\..\SDL2-2.0.3\lib\x86\SDL2main.lib;..\..\SDL2_image-2.0.0\lib\x86\SDL2_image.lib;OpenGL32.lib;..\..\kick\lib\debug\kick.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DepthBake.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)DepthBake.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>DEBUG;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\..\glew-1.11.0\include;..\..\SDL2-2.0.3\include;..\..\SDL2_image-2.0.0\include;..\..\kick\src;..\..\kick\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\glew-1.11.0\lib\Release\Win32\glew32s.lib;..\..\SDL2-2.0.3\lib\x86\SDL2.lib;..\..\SDL2-2.0.3\lib\x86\SDL2main.lib;..\..\SDL2_image-2.0.0\lib\x86\SDL2_image.lib;OpenGL32.lib;..\..\kick\lib\debug\kick.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DepthBake.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\BakeCamera.h" />
+    <ClInclude Include="..\src\CameraController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BakeCamera.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\CameraController.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\font\font_license.txt" />
+    <None Include="..\assets\font\open_sans_28.fnt" />
+    <None Include="..\assets\font\open_sans_28.png" />
+    <None Include="..\assets\font\open_sans_58.fnt" />
+    <None Include="..\assets\font\open_sans_58.png" />
+    <None Include="..\assets\shaders\bloom_1_pass_fs.glsl" />
+    <None Include="..\assets\shaders\bloom_2_pass_fs.glsl" />
+    <None Include="..\assets\shaders\bloom_3_pass_fs.glsl" />
+    <None Include="..\assets\shaders\bloom_pass_vs.glsl" />
+    <None Include="..\assets\shaders\diffuse.shader" />
+    <None Include="..\assets\shaders\diffuse_fs.glsl" />
+    <None Include="..\assets\shaders\diffuse_vertex_colored.shader" />
+    <None Include="..\assets\shaders\diffuse_vertex_colored_fs.glsl" />
+    <None Include="..\assets\shaders\diffuse_vertex_colored_vs.glsl" />
+    <None Include="..\assets\shaders\diffuse_vs.glsl" />
+    <None Include="..\assets\shaders\font.shader" />
+    <None Include="..\assets\shaders\font_fs.glsl" />
+    <None Include="..\assets\shaders\font_vs.glsl" />
+    <None Include="..\assets\shaders\light.glsl" />
+    <None Include="..\assets\shaders\shadowmap.glsl" />
+    <None Include="..\assets\shaders\skybox.shader" />
+    <None Include="..\assets\shaders\skybox_fs.glsl" />
+    <None Include="..\assets\shaders\skybox_vs.glsl" />
+    <None Include="..\assets\shaders\specular.shader" />
+    <None Include="..\assets\shaders\specular_fs.glsl" />
+    <None Include="..\assets\shaders\specular_vs.glsl" />
+    <None Include="..\assets\shaders\sprite.shader" />
+    <None Include="..\assets\shaders\sprite_fs.glsl" />
+    <None Include="..\assets\shaders\sprite_vs.glsl" />
+    <None Include="..\assets\shaders\transparent_diffuse.shader" />
+    <None Include="..\assets\shaders\transparent_diffuse_fs.glsl" />
+    <None Include="..\assets\shaders\transparent_diffuse_vs.glsl" />
+    <None Include="..\assets\shaders\transparent_point_sprite.shader" />
+    <None Include="..\assets\shaders\transparent_point_sprite_fs.glsl" />
+    <None Include="..\assets\shaders\transparent_point_sprite_vs.glsl" />
+    <None Include="..\assets\shaders\transparent_specular.shader" />
+    <None Include="..\assets\shaders\transparent_specular_fs.glsl" />
+    <None Include="..\assets\shaders\transparent_specular_vs.glsl" />
+    <None Include="..\assets\shaders\transparent_unlit.shader" />
+    <None Include="..\assets\shaders\transparent_unlit_fs.glsl" />
+    <None Include="..\assets\shaders\transparent_unlit_vs.glsl" />
+    <None Include="..\assets\shaders\unlit.shader" />
+    <None Include="..\assets\shaders\unlit_fs.glsl" />
+    <None Include="..\assets\shaders\unlit_vertex_color.shader" />
+    <None Include="..\assets\shaders\unlit_vertex_color_fs.glsl" />
+    <None Include="..\assets\shaders\unlit_vertex_color_vs.glsl" />
+    <None Include="..\assets\shaders\unlit_vs.glsl" />
+    <None Include="..\assets\shaders\__error.shader" />
+    <None Include="..\assets\shaders\__error_fs.glsl" />
+    <None Include="..\assets\shaders\__error_vs.glsl" />
+    <None Include="..\assets\shaders\__pick.shader" />
+    <None Include="..\assets\shaders\__pick_fs.glsl" />
+    <None Include="..\assets\shaders\__pick_normal.shader" />
+    <None Include="..\assets\shaders\__pick_normal_fs.glsl" />
+    <None Include="..\assets\shaders\__pick_normal_vs.glsl" />
+    <None Include="..\assets\shaders\__pick_uv.shader" />
+    <None Include="..\assets\shaders\__pick_uv_fs.glsl" />
+    <None Include="..\assets\shaders\__pick_uv_vs.glsl" />
+    <None Include="..\assets\shaders\__pick_vs.glsl" />
+    <None Include="..\assets\shaders\__shadowmap.shader" />
+    <None Include="..\assets\shaders\__shadowmap_fs.glsl" />
+    <None Include="..\assets\shaders\__shadowmap_vs.glsl" />
+    <None Include="..\assets\textures\black.png" />
+    <None Include="..\assets\textures\cubemap.png" />
+    <None Include="..\assets\textures\logo.png" />
+    <None Include="..\assets\textures\white.png" />
+    <None Include="..\assets\ui\readme.txt" />
+    <None Include="..\assets\ui\ui.png" />
+    <None Include="..\assets\ui\ui.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

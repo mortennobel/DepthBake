@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{0DC84CD0-BBA1-8740-9AF2-D893A7CFDC96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{8838C052-70F3-D84F-9E11-E1E96BA24EA2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\font">
+      <UniqueIdentifier>{48F8D4FE-0AD3-A249-9621-EAB332AC0516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\shaders">
+      <UniqueIdentifier>{C1CC548E-67E0-0646-8E7F-9E6103DBE892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\textures">
+      <UniqueIdentifier>{B5EA99B4-2504-7A4C-B4A6-12CAA86179EC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\ui">
+      <UniqueIdentifier>{7E8F536B-230E-E64A-8E73-8D0574089878}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\font\font_license.txt">
+      <Filter>assets\font</Filter>
+    </None>
+    <None Include="..\assets\font\open_sans_28.fnt">
+      <Filter>assets\font</Filter>
+    </None>
+    <None Include="..\assets\font\open_sans_28.png">
+      <Filter>assets\font</Filter>
+    </None>
+    <None Include="..\assets\font\open_sans_58.fnt">
+      <Filter>assets\font</Filter>
+    </None>
+    <None Include="..\assets\font\open_sans_58.png">
+      <Filter>assets\font</Filter>
+    </None>
+    <None Include="..\assets\shaders\bloom_1_pass_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\bloom_2_pass_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\bloom_3_pass_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\bloom_pass_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\diffuse.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\diffuse_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\diffuse_vertex_colored.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\diffuse_vertex_colored_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\diffuse_vertex_colored_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\diffuse_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\font.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\font_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\font_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\light.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\shadowmap.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\skybox.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\skybox_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\skybox_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\specular.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\specular_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\specular_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\sprite.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\sprite_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\sprite_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_diffuse.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_diffuse_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_diffuse_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_point_sprite.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_point_sprite_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_point_sprite_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_specular.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_specular_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_specular_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_unlit.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_unlit_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\transparent_unlit_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\unlit.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\unlit_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\unlit_vertex_color.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\unlit_vertex_color_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\unlit_vertex_color_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\unlit_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__error.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__error_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__error_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_normal.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_normal_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_normal_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_uv.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_uv_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_uv_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__pick_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__shadowmap.shader">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__shadowmap_fs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\__shadowmap_vs.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\textures\black.png">
+      <Filter>assets\textures</Filter>
+    </None>
+    <None Include="..\assets\textures\cubemap.png">
+      <Filter>assets\textures</Filter>
+    </None>
+    <None Include="..\assets\textures\logo.png">
+      <Filter>assets\textures</Filter>
+    </None>
+    <None Include="..\assets\textures\white.png">
+      <Filter>assets\textures</Filter>
+    </None>
+    <None Include="..\assets\ui\readme.txt">
+      <Filter>assets\ui</Filter>
+    </None>
+    <None Include="..\assets\ui\ui.png">
+      <Filter>assets\ui</Filter>
+    </None>
+    <None Include="..\assets\ui\ui.txt">
+      <Filter>assets\ui</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\BakeCamera.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CameraController.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BakeCamera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CameraController.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

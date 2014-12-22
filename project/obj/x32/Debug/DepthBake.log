@@ -1,0 +1,15 @@
+﻿Build started 22-12-2014 15:28:37.
+     1>Project "C:\Users\mono\Documents\GitHub\DepthBake\project\DepthBake.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\src /I"..\..\glew-1.11.0\include" /I"..\..\SDL2-2.0.3\include" /I"..\..\SDL2_image-2.0.0\include" /I..\..\kick\src /I..\..\kick\libs\include /ZI /nologo /W3 /WX- /Od /Oy- /D DEBUG /D GLM_FORCE_PURE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\x32\Debug\\" /Fd"..\bin\debug\DepthBake.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\debug\DepthBake.exe" /INCREMENTAL /NOLOGO "..\..\glew-1.11.0\lib\Release\Win32\glew32s.lib" "..\..\SDL2-2.0.3\lib\x86\SDL2.lib" "..\..\SDL2-2.0.3\lib\x86\SDL2main.lib" "..\..\SDL2_image-2.0.0\lib\x86\SDL2_image.lib" OpenGL32.lib ..\..\kick\lib\debug\kick.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\debug\DepthBake.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\debug\DepthBake.lib" /MACHINE:X86 obj\x32\Debug\BakeCamera.obj
+         obj\x32\Debug\CameraController.obj
+         obj\x32\Debug\main.obj
+         DepthBake.vcxproj -> C:\Users\mono\Documents\GitHub\DepthBake\project\..\bin\debug\DepthBake.exe
+     1>Done Building Project "C:\Users\mono\Documents\GitHub\DepthBake\project\DepthBake.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.82
