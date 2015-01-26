@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
     bool showPlane = false;
 
     WindowConfig windowConfig;
-    int screenWidth = 64;
+    int screenWidth = 256;
     windowConfig.height = screenWidth;
     windowConfig.width = screenWidth;
 

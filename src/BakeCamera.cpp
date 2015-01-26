@@ -16,6 +16,7 @@ using namespace kick;
 BakeCamera::BakeCamera(kick::GameObject *gameObject, int screenWidth)
         : CameraOrthographic(gameObject),screenWidth(screenWidth)
 {
+	printOpenGLError();
     texture = std::make_shared<Texture2D>();
     ImageFormat imageFormat;
     imageFormat.internalFormat = GL_R32F;
@@ -28,10 +29,12 @@ BakeCamera::BakeCamera(kick::GameObject *gameObject, int screenWidth)
     renderTarget->apply();
     printOpenGLError();
     setTarget(renderTarget);
+	this->setIndex(2);
 }
 
 void BakeCamera::render(EngineUniforms *engineUniforms) {
     CameraOrthographic::render(engineUniforms);
+	glFlush();
 	glFinish();
     glPixelStorei(GL_UNPACK_ALIGNMENT,1);
     glPixelStorei(GL_PACK_ALIGNMENT,1);
