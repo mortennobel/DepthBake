@@ -20,7 +20,7 @@ int main(int argc, char * argv[])
 {
 
 
-    bool showPlane = false;
+    bool showPlane = true;
 
     WindowConfig windowConfig;
     int screenWidth = 256;
@@ -43,7 +43,6 @@ int main(int argc, char * argv[])
     mesh->setMeshData(meshData);
     meshRenderer->setMesh(mesh);
     rescaleAndCenter(meshRenderer, bounds);
-//    mainCamera->gameObject()->transform()->lookAt(glm::vec3{0}, glm::vec3{0,1,0});
 
     GameObject * gameObject = scene->createGameObject();
     BakeCamera * bakeCamera = gameObject->addComponent<BakeCamera>(screenWidth);
