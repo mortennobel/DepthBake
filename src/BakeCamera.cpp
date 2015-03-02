@@ -10,6 +10,8 @@
 #include <SDL2/SDL_surface.h>
 #endif
 #include <fstream>
+#include "CameraController.h"
+#include <sstream> 
 
 using namespace kick;
 
@@ -51,7 +53,10 @@ void BakeCamera::render(EngineUniforms *engineUniforms) {
         res[i] = (char) (resFloat[i/4]*255);
     }
 
-    std::ofstream fileOut(filename+".raw");
+	std::ostringstream fname;
+	fname << filename << "_a" << (int)cameraController->azimuthAngle << "_e" << cameraController->elevationAngle << "_plane" << cameraController->plane << ".raw";
+
+	std::ofstream fileOut(fname.str());
     for (int i=0;i<resFloat.size();i++){
         if (i>0){
             if (i%screenWidth == 0){
