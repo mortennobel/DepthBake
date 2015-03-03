@@ -64,24 +64,31 @@ int main(int argc, char * argv[])
 
 	// Find all mesh renderers and determine bounds
 	std::vector<MeshRenderer*> meshes = scene->findComponents<MeshRenderer>();
-	auto bounds = meshes[0]->mesh()->meshData()->bounds();
 	std::set<Transform*> rootTransforms;
 	for (auto m : meshes){
-		bounds.expand(m->mesh()->meshData()->bounds().max);
-		bounds.expand(m->mesh()->meshData()->bounds().min);
 		rootTransforms.insert(m->transform()->root());
+	}
+	
+	// create new root and offset root
+	auto meshRootGO = scene->createGameObject("MeshRoot");
+	meshRootGO->transform()->setRotationEuler({ -glm::pi<float>() / 2, 0, 0 });
+	for (auto rt : rootTransforms){
+		rt->setParent(meshRootGO->transform());
+	}
+	auto bounds = meshes[0]->mesh()->meshData()->bounds();
+	for (auto m : meshes){
+		auto meshBounds = m->mesh()->meshData()->bounds();
+		meshBounds = meshBounds.transform(m->transform()->globalMatrix());
+		bounds.expand(meshBounds.max);
+		bounds.expand(meshBounds.min);
 	}
 	std::cout << "Bounds " << bounds << std::endl;
 	std::cout << "Bounds size " << glm::to_string(bounds.diagonal()) << std::endl;
 	
-	// create new root and offset root
-	auto meshRootGO = scene->createGameObject("MeshRoot");
 	auto offset = -bounds.center();
 	offset.y = -bounds.min.y;
 	meshRootGO->transform()->setLocalPosition(offset);
-	for (auto rt : rootTransforms){
-		rt->setParent(meshRootGO->transform());
-	}
+	
 
     auto cameraGameObject = scene->createGameObject("mainCamera");
     auto mainCamera = cameraGameObject->addComponent<CameraOrthographic>();
@@ -109,9 +116,8 @@ int main(int argc, char * argv[])
 		m->setMaterial(material);
 	}
 
-	
     MeshRenderer* plane = scene->createCube(nullptr,1.0f);
-    plane->transform()->setLocalScale(glm::vec3(1000.0f,0.0001f,1000.0f));
+    plane->transform()->setLocalScale(glm::vec3(100000.0f,0.0001f,100000.0f));
     plane->setMaterial(material);
 
 	cameraController->planeMesh = plane;
