@@ -41,8 +41,8 @@ void CameraController::update() {
 
 		glm::vec3 cameraPos(0, 0, -args->cameraRadius);
 
-		cameraPos = glm::rotateX(cameraPos, -glm::radians((float)viewAngle.getElevation()));
-		cameraPos = glm::rotateY(cameraPos, -glm::radians((float)viewAngle.getAzimuth()+90));
+		cameraPos = glm::rotateX(cameraPos, glm::radians((float)viewAngle.getElevation()));
+		cameraPos = glm::rotateY(cameraPos, glm::radians((float)viewAngle.getAzimuth()+90));
 
 		std::ostringstream fname;
 		fname << "depthbake_ elevation " << viewAngle.getElevation() << " azimuth "<<viewAngle.getAzimuth() << "_plane" << plane ;

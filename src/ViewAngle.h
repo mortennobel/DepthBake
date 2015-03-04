@@ -16,11 +16,12 @@ public:
 	
 	std::string getFilename(){ return filename; }
 	double getElevation(){ 
-		//return elevation; 
-		return 70;
+		return elevation;
+		//return 70;
 	}
+
 	double getAzimuth(){ 
-		//return azimuth;
-		return 90;
+		return azimuth;
+		//return 270;
 	}
 };
