@@ -55,6 +55,9 @@ void DepthBakeArgs::printHelp(){
 		"\n-resolution [int]" << resolution <<
 		"\n-cameraResolution [float]" << cameraResolution <<
 		"\n-cameraRadius [int]" << cameraRadius <<
+		"\n-flipYZ " <<
+		"\n-inputUnit [inch,mm]" << inputUnit<<
+		"\n-viewAngleFile [] "<<
 		"\n";
 }
 
@@ -81,6 +84,11 @@ DepthBakeArgs::DepthBakeArgs(int argc, char * argv[]){
 	resolution = getCmdOptionInt("-resolution", resolution);
 	cameraResolution = getCmdOptionFloat("-cameraResolution", cameraResolution);
 	cameraRadius = getCmdOptionFloat("-cameraRadius", cameraRadius);
-
-
+	flipYZ = cmdOptionExists("-flipYZ");
+	inputUnit = getCmdOptionString("-inputUnit", inputUnit);
+	if (inputUnit != "inch" && inputUnit != "mm"){
+		std::cerr << "Unsupported input unit. mm or inch expected" << endl;
+		exit(0);
+	}
+	viewAngleFile = getCmdOptionString("-viewAngleFile", viewAngleFile);
 }

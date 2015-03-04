@@ -25,6 +25,9 @@ public:
 	int resolution = 512; // number of pixels in width / height of image plane
 	float cameraResolution = 20; // size of image plane in width / height (in meters)
 	float cameraRadius = 20;
+	bool flipYZ = false;
+	std::string inputUnit = "inch";
+	std::string viewAngleFile = "";
 
 	DepthBakeArgs(int argc, char * argv[]);
 

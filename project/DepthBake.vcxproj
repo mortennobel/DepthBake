@@ -212,6 +212,8 @@
     <ClInclude Include="..\src\BakeCamera.h" />
     <ClInclude Include="..\src\CameraController.h" />
     <ClInclude Include="..\src\DepthBakeArgs.h" />
+    <ClInclude Include="..\src\LoadViewAngle.h" />
+    <ClInclude Include="..\src\ViewAngle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\BakeCamera.cpp">
@@ -219,8 +221,10 @@
     <ClCompile Include="..\src\CameraController.cpp">
     </ClCompile>
     <ClCompile Include="..\src\DepthBakeArgs.cpp" />
+    <ClCompile Include="..\src\LoadViewAngle.cpp" />
     <ClCompile Include="..\src\main.cpp">
     </ClCompile>
+    <ClCompile Include="..\src\ViewAngle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\font\font_license.txt" />

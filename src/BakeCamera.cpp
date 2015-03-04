@@ -15,6 +15,8 @@
 
 using namespace kick;
 
+
+
 BakeCamera::BakeCamera(kick::GameObject *gameObject, int screenWidth)
         : CameraOrthographic(gameObject),screenWidth(screenWidth)
 {
@@ -54,7 +56,7 @@ void BakeCamera::render(EngineUniforms *engineUniforms) {
     }
 
 	std::ostringstream fname;
-	fname << filename << "_a" << (int)cameraController->azimuthAngle << "_e" << cameraController->elevationAngle << "_plane" << cameraController->plane << ".raw";
+	fname << "depthbake_"<<cameraController->viewAngle.getFilename() << "_plane" << cameraController->plane << ".raw";
 
 	std::ofstream fileOut(fname.str());
     for (int i=0;i<resFloat.size();i++){
