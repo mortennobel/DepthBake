@@ -33,7 +33,7 @@ BakeCamera::BakeCamera(kick::GameObject *gameObject, int screenWidth)
     renderTarget->apply();
     printOpenGLError();
     setTarget(renderTarget);
-	this->setIndex(2);
+	setIndex(2);
 }
 
 void BakeCamera::render(EngineUniforms *engineUniforms) {
