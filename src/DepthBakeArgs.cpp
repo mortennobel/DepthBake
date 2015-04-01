@@ -58,6 +58,7 @@ void DepthBakeArgs::printHelp(){
 		"\n-flipYZ " <<
 		"\n-inputUnit [inch,mm]" << inputUnit<<
 		"\n-viewAngleFile [] "<<
+        "\n-outputPath []"<<
 		"\n";
 }
 
@@ -91,4 +92,5 @@ DepthBakeArgs::DepthBakeArgs(int argc, char * argv[]){
 		exit(0);
 	}
 	viewAngleFile = getCmdOptionString("-viewAngleFile", viewAngleFile);
+    outputPath = getCmdOptionString("-outputPath", outputPath);
 }

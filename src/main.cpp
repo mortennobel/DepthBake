@@ -113,7 +113,7 @@ int main(int argc, char * argv[])
 	mainCamera->setFar(arg->cameraRadius*100);
 
     GameObject * gameObject = scene->createGameObject();
-    BakeCamera * bakeCamera = gameObject->addComponent<BakeCamera>(screenWidth);
+    BakeCamera * bakeCamera = gameObject->addComponent<BakeCamera>(screenWidth, arg->outputPath);
 	bakeCamera->setLeft(-arg->cameraResolution*0.5f);
 	bakeCamera->setRight(arg->cameraResolution*0.5f);
 	bakeCamera->setTop(arg->cameraResolution*0.5f);

@@ -28,6 +28,7 @@ public:
 	bool flipYZ = false;
 	std::string inputUnit = "inch";
 	std::string viewAngleFile = "";
+    std::string outputPath = "";
 
 	DepthBakeArgs(int argc, char * argv[]);
 

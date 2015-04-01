@@ -17,8 +17,8 @@ using namespace kick;
 
 
 
-BakeCamera::BakeCamera(kick::GameObject *gameObject, int screenWidth)
-        : CameraOrthographic(gameObject),screenWidth(screenWidth)
+BakeCamera::BakeCamera(kick::GameObject *gameObject, int screenWidth, std::string outputPath)
+        : CameraOrthographic(gameObject),screenWidth(screenWidth), outputPath(outputPath)
 {
 	printOpenGLError();
     texture = std::make_shared<Texture2D>();
@@ -56,7 +56,10 @@ void BakeCamera::render(EngineUniforms *engineUniforms) {
     }
 
 	std::ostringstream fname;
-	fname << "depthbake_"<<cameraController->viewAngle.getFilename() << "_plane" << cameraController->plane << ".raw";
+    if (cameraController->viewAngle.getFilename().length() == 0){
+        return;
+    }
+	fname << outputPath << "depthbake_"<<cameraController->viewAngle.getFilename() << "_plane" << cameraController->plane << ".raw";
 
 	std::ofstream fileOut(fname.str());
     for (int i=0;i<resFloat.size();i++){
