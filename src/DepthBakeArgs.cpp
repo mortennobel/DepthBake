@@ -59,6 +59,7 @@ void DepthBakeArgs::printHelp(){
 		"\n-inputUnit [inch,mm]" << inputUnit<<
 		"\n-viewAngleFile [] "<<
         "\n-outputPath []"<<
+        "\n-centerUsingBoundaryBox [false]"<<
 		"\n";
 }
 
@@ -87,6 +88,7 @@ DepthBakeArgs::DepthBakeArgs(int argc, char * argv[]){
 	cameraRadius = getCmdOptionFloat("-cameraRadius", cameraRadius);
 	flipYZ = cmdOptionExists("-flipYZ");
 	inputUnit = getCmdOptionString("-inputUnit", inputUnit);
+    centerUsingBoundaryBox = getCmdOptionString("-centerUsingBoundaryBox", "false") == "true";
 	if (inputUnit != "inch" && inputUnit != "mm"){
 		std::cerr << "Unsupported input unit. mm or inch expected" << endl;
 		exit(0);

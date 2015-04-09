@@ -98,11 +98,11 @@ int main(int argc, char * argv[])
 	}
 	std::cout << "Bounds " << bounds << std::endl;
 	std::cout << "Bounds size " << glm::to_string(bounds.diagonal()) << std::endl;
-	
-	auto offset = -bounds.center();
-	offset.y = -bounds.min.y;
-	meshRootGO->transform()->setLocalPosition(offset);
-	
+	if (arg->centerUsingBoundaryBox){
+        auto offset = -bounds.center();
+        offset.y = -bounds.min.y;
+        meshRootGO->transform()->setLocalPosition(offset);
+    }
     auto cameraGameObject = scene->createGameObject("mainCamera");
     auto mainCamera = cameraGameObject->addComponent<CameraOrthographic>();
 	mainCamera->setLeft(-arg->cameraResolution*0.5f);

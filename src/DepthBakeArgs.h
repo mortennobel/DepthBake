@@ -26,6 +26,7 @@ public:
 	float cameraResolution = 20; // size of image plane in width / height (in meters)
 	float cameraRadius = 100;
 	bool flipYZ = false;
+    bool centerUsingBoundaryBox = false;
 	std::string inputUnit = "inch";
 	std::string viewAngleFile = "";
     std::string outputPath = "";
