@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from numpy import log10
 
 #target = np.genfromtxt('C:\Users\DMHA\Documents\Visual Studio 2013\Projects\DepthBake\\test.raw', delimiter=',')
-def ReadDepthBakeOutput(targetPath, planePath, dataPath):
+def ReadDepthBakeOutput(targetPath, planePath, dataPath, outputFilename):
     target = np.genfromtxt(targetPath, delimiter=',')
     plane = np.genfromtxt(planePath, delimiter=',')
     [im, _, hdr] = bin.readMSTAR(dataPath)
@@ -77,3 +77,7 @@ def ReadDepthBakeOutput(targetPath, planePath, dataPath):
     plt.scatter(np.where(SARseg==1)[1],np.where(SARseg==1)[0],c='b',s=20)
     plt.scatter(np.where(SARseg==2)[1],np.where(SARseg==2)[0],c='r',s=20)
     plt.axis([ 0, 171, 172, 0])
+    #numpy write
+    np.savetxt(outputFilename+".csv",SARseg, delimiter=',')
+    plt.savefig(outputFilename+".png")
+    plt.close()
