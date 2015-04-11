@@ -86,7 +86,7 @@ def Analyze(fileMapping):
                 MeasuredDepression = float(row[2].strip())
                 if (fileMapping.has_key(filename.lower())):
                     dataPath = fileMapping[filename.lower()]
-                    ReadDepthBakeOutput.ReadDepthBakeOutput(depthBakeOutPaths[i]+"depthbake_"+filename.lower()+"_plane0.raw", depthBakeOutPaths[i]+"depthbake_"+filename.lower()+"_plane0.raw", dataPath, depthBakeOutPaths[i]+filename)
+                    ReadDepthBakeOutput.ReadDepthBakeOutput(depthBakeOutPaths[i]+"depthbake_"+filename.lower()+"_plane0.raw", depthBakeOutPaths[i]+"depthbake_"+filename.lower()+"_plane1.raw", dataPath, depthBakeOutPaths[i]+filename)
                 else:
                     print("Could not find "+filename.lower())
 
@@ -123,7 +123,7 @@ print("File mappings end")
 
 #ReadDepthBakeOutput.ReadDepthBakeOutput(targetPath, planePath, fileMapping["HB03333.0015"], targetPath+".png")
 
-AllRunDepthBake()
+#AllRunDepthBake()
 #RunDepthBake()
 Analyze(fileMapping)
 
