@@ -8,6 +8,7 @@ Read DeptBake output
 """
 
 import numpy as np
+import scipy.signal
 import binreader as bin
 import matplotlib.pyplot as plt
 from numpy import log10
@@ -62,14 +63,14 @@ def ReadDepthBakeOutput(targetPath, planePath, dataPath, outputFilename):
     seg = np.flipud(seg)
 
     #calculate where to place our segmentated object
-    sc = imw/2 - int(np.where(columns==255)[0]*5/div)
-    [x,y] = np.where(seg==1)
-    shadowheight = np.min(x)
-    x = x-shadowheight
-    k=np.zeros(imh-len(np.unique(x)))
-    for i in range(np.size(im,0)-len(np.unique(x))):
-        k[i]=np.sum(im[x+i,y+sc])
-    sr = np.argmax(k)-shadowheight
+    temp=np.array(seg)
+    temp[np.where(seg==2)]=0
+    corr=scipy.signal.correlate2d(im,temp,mode='same')
+    bla=np.argmax(corr)
+    ch=bla/imw
+    cv=bla%imw
+    sc = imw/2 - (imw/2 - cv) - np.size(seg,1)/2# - int(np.where(columns==255)[0]*5/div)
+    sr = imh/2 - (imh/2 - ch) - np.size(seg,0)/2
 
     #seg's indicies +sr in rows and +sc in columns is the outline of the tank
     SARseg = np.zeros([np.size(im,0),np.size(im,1)])
