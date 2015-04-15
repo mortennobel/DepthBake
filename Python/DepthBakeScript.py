@@ -30,28 +30,28 @@ if argc > 3:
 viewAngleFiles = [#"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/bmp2_tank_9563.csv",
               #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/bmp2_tank_9566.csv",
               #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/bmp2_tank_c21.csv",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/data/btr70_transport_c71.csv",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_132.csv", #version 1
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_812.csv", #version 1
+              # "/Users/mono/Programming/cpp/DepthBake/DepthBake/data/btr70_transport_c71.csv",
+              "/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_132.csv", #version 1
+              "/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_812.csv", #version 1
               #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_s7.csv" #version 2
               ]
 
 modelFiles = [#"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/BMP-2.obj",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/models/BTR70.obj",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version1.obj",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version1.obj",
+              # "/Users/mono/Programming/cpp/DepthBake/DepthBake/models/BTR70.obj",
+              "/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version1.obj",
+              "/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version1.obj",
               #"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version2.obj",
               ]
 
 depthBakeOutPaths = [#"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/BMP-2.obj",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/btr70_transport_c71/",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_812/",
+              # "/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/btr70_transport_c71/",
+              "/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/",
+              "/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_812/",
               #"/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_s7/",
               ]
 
 inputUnits = ["inch",
-              #"inch",
+              "inch",
               #"inch",
               #"mm",
               ]
@@ -116,14 +116,14 @@ fileMapping = filenameToPath(dataPath)
 #    modKey = k[:len(k)-3] +"0"+ k[len(k)-3:]
 #    fileMapping[modKey] = fileMapping[k]
 
-print("File mappings")
-for k in fileMapping.keys():
-        print(k + "\t"+fileMapping[k])
-print("File mappings end")
+#print("File mappings")
+#for k in fileMapping.keys():
+#        print(k + "\t"+fileMapping[k])
+#print("File mappings end")
 
 #ReadDepthBakeOutput.ReadDepthBakeOutput(targetPath, planePath, fileMapping["HB03333.0015"], targetPath+".png")
 
-#AllRunDepthBake()
+AllRunDepthBake()
 #RunDepthBake()
 Analyze(fileMapping)
 
