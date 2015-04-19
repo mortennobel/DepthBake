@@ -10,15 +10,15 @@ argc = len(sys.argv)
 
 depthBakePath = '/Users/mono/Library/Caches/appCode31/DerivedData/DepthBake-71380c64/Build/Products/Release/DepthBake'
 depthBakeCWD = '/Users/mono/Programming/cpp/DepthBake/DepthBake/'
-depthBakeOutPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/'
-viewAngleDir = '/Users/mono/Programming/cpp/DepthBake/DepthBake/data'
-viewAngleFile = '/Users/mono/Programming/cpp/DepthBake/DepthBake/data/btr70_transport_c71.csv'
-modelFile = '/Users/mono/Programming/cpp/DepthBake/DepthBake/t-62.obj'
+#depthBakeOutPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/'
+#viewAngleDir = '/Users/mono/Programming/cpp/DepthBake/DepthBake/data'
+#viewAngleFile = '/Users/mono/Programming/cpp/DepthBake/DepthBake/data/btr70_transport_c71.csv'
+#modelFile = '/Users/mono/Programming/cpp/DepthBake/DepthBake/t-62.obj'
 
-targetPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/depthbake_hb03333.0015_plane0.raw'
-planePath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/depthbake_hb03333.0015_plane1.raw'
+#targetPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/depthbake_hb03333.0015_plane0.raw'
+#planePath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/depthbake_hb03333.0015_plane1.raw'
 dataPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/Python/Data/MSTAR_PUBLIC_TARGETS_CHIPS_T72_BMP2_BTR70_SLICY/'
-analysisOutput = '/Users/mono/Programming/cpp/DepthBake/DepthBake/test.png'
+#analysisOutput = '/Users/mono/Programming/cpp/DepthBake/DepthBake/test.png'
 if argc > 1:
     targetPath = sys.argv[1]
 if argc > 2:
@@ -74,7 +74,8 @@ def RunDepthBake(depthBakeOutPath, viewAngleFile, modelFile, inputUnit):
 
 def Analyze(fileMapping):
     for i in range(0,len(depthBakeOutPaths)):
-        with open(viewAngleFile, 'rb') as csvfile:
+        print("Analyze "+viewAngleFiles[i])
+        with open(viewAngleFiles[i], 'rb') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             first = True
             for row in spamreader:
@@ -123,7 +124,7 @@ fileMapping = filenameToPath(dataPath)
 
 #ReadDepthBakeOutput.ReadDepthBakeOutput(targetPath, planePath, fileMapping["HB03333.0015"], targetPath+".png")
 
-AllRunDepthBake()
+#AllRunDepthBake()
 #RunDepthBake()
 Analyze(fileMapping)
 

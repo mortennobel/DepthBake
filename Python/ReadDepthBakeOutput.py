@@ -15,7 +15,7 @@ from numpy import log10
 
 #target = np.genfromtxt('C:\Users\DMHA\Documents\Visual Studio 2013\Projects\DepthBake\\test.raw', delimiter=',')
 def ReadDepthBakeOutput(targetPath, planePath, dataPath, outputFilename):
-    print(targetPath+ " # "+ planePath)
+    print(targetPath+ " # "+ planePath +" # "+dataPath+" # "+outputFilename)
     target = np.genfromtxt(targetPath, delimiter=',')
     plane = np.genfromtxt(planePath, delimiter=',')
     [im, _, hdr] = bin.readMSTAR(dataPath)
