@@ -21,15 +21,10 @@ BakeCamera::BakeCamera(kick::GameObject *gameObject, int screenWidth, std::strin
         : CameraOrthographic(gameObject),screenWidth(screenWidth), outputPath(outputPath)
 {
 	printOpenGLError();
-    texture = std::make_shared<Texture2D>();
-    ImageFormat imageFormat;
-    imageFormat.internalFormat = GL_R32F;
-    imageFormat.format = GL_RED;
-    imageFormat.mipmap = Mipmap::None;
-    imageFormat.type = GL_FLOAT;
-    texture->setData(screenWidth, screenWidth, nullptr, imageFormat);
+    textureDepth = std::make_shared<Texture2D>();
+    textureDepth->setEmptyDepthTexture(screenWidth, screenWidth, 32, true);
     TextureRenderTarget *renderTarget = new TextureRenderTarget();
-    renderTarget->setColorTexture(0, texture);
+    renderTarget->setDepthTexture(textureDepth);
     renderTarget->apply();
     printOpenGLError();
     setTarget(renderTarget);
@@ -42,17 +37,17 @@ void BakeCamera::render(EngineUniforms *engineUniforms) {
 	glFinish();
     glPixelStorei(GL_UNPACK_ALIGNMENT,1);
     glPixelStorei(GL_PACK_ALIGNMENT,1);
-    // grap result
-    texture->bind(1);
 
-    //glGetTexImage()
-    //texture->saveBMPImage("test.bmp");
-    std::vector<char> res(screenWidth * screenWidth *4);
-    std::vector<float> resFloat(screenWidth * screenWidth);
-	
-    glGetTexImage(GL_TEXTURE_2D, 0, GL_RED, GL_FLOAT, resFloat.data());
-    for (int i=0;i<res.size();i++){
-        res[i] = (char) (resFloat[i/4]*255);
+    auto dataDepth = textureDepth->data();
+
+    for (int x=0;x<textureDepth->width();x++){
+        for (int y=0;y<textureDepth->height();y++) {
+            float depth = near() + (far()- near())* dataDepth.vec1(x,y);
+            if (depth == far()){
+                depth = 0; // workaround mark as unused (0 distance)
+            }
+            dataDepth.vec1(x,y) = depth;
+        }
     }
 
 	std::ostringstream fname;
@@ -61,8 +56,10 @@ void BakeCamera::render(EngineUniforms *engineUniforms) {
     }
 	fname << outputPath << "depthbake_"<<cameraController->viewAngle.getFilename() << "_plane" << cameraController->plane << ".raw";
 
+    float* resFloat = &(dataDepth.vec1(0,0));
+
 	std::ofstream fileOut(fname.str());
-    for (int i=0;i<resFloat.size();i++){
+    for (int i=0;i<textureDepth->width()*textureDepth->height();i++){
         if (i>0){
             if (i%screenWidth == 0){
                 fileOut << "\n";
@@ -74,13 +71,5 @@ void BakeCamera::render(EngineUniforms *engineUniforms) {
     }
 	fileOut << std::flush;
 
-
-    if (writeDebugBMP){
-        SDL_Surface* sdlSurface = SDL_CreateRGBSurfaceFrom(res.data(), screenWidth, screenWidth,32, screenWidth *4, 0xff,0xff<<8,0xff<<16,0xff<<24);
-        std::string bmpFilename = filename + ".bmp";
-        SDL_SaveBMP(sdlSurface, bmpFilename.c_str());
-        sdlSurface->pixels = nullptr;
-        SDL_FreeSurface(sdlSurface);
-    }
     printOpenGLError();
 }

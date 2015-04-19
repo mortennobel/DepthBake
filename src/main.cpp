@@ -127,7 +127,7 @@ int main(int argc, char * argv[])
 		cameraController->viewAngles = viewAngles;
 	}
 
-    auto shader = Project::loadShader("custom.shader");
+    auto shader = Project::loadShader("passthrough.shader");
     auto material = std::make_shared<Material>();
     material->setShader(shader);
 	bakeCamera->setReplacementMaterial(material);
