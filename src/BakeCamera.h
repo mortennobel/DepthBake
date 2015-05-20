@@ -11,7 +11,7 @@ class BakeCamera : public kick::CameraOrthographic {
     std::shared_ptr<kick::Texture2D> textureDepth;
     std::string outputPath;
 public:
-	CameraController * cameraController;
+	std::shared_ptr<CameraController> cameraController;
 
     BakeCamera(kick::GameObject *gameObject, int screenWidth, std::string outputPath);
 

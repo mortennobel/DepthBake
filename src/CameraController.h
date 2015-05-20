@@ -6,18 +6,18 @@
 #include "ViewAngle.h"
 
 class CameraController : public kick::Component , public kick::Updatable {
-    
-    kick::Camera * mainCamera = nullptr;
-    BakeCamera * bakeCamera = nullptr;
-    kick::MeshRenderer* meshRenderer;
+
+    std::shared_ptr<kick::Camera> mainCamera = nullptr;
+    std::shared_ptr<BakeCamera>  bakeCamera = nullptr;
+    std::shared_ptr<kick::MeshRenderer> meshRenderer;
 	std::shared_ptr<DepthBakeArgs> args;
 	int elevationRotations;
 public:
 	int frame = -1;
 	ViewAngle viewAngle;
 	bool plane = false;
-	kick::MeshRenderer* planeMesh;
-    CameraController(kick::GameObject *gameObject, kick::Camera * mainCamera, BakeCamera * bakeCamera, kick::MeshRenderer* meshRenderer, std::shared_ptr<DepthBakeArgs> args);
+	std::shared_ptr<kick::MeshRenderer> planeMesh;
+    CameraController(kick::GameObject* gameObject, std::shared_ptr<kick::Camera> mainCamera, std::shared_ptr<BakeCamera> bakeCamera, std::shared_ptr<kick::MeshRenderer> meshRenderer, std::shared_ptr<DepthBakeArgs> args);
 
 	std::vector<ViewAngle> viewAngles;
 

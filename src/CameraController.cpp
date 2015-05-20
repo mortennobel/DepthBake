@@ -9,7 +9,7 @@
 
 using namespace std;
 
-CameraController::CameraController(kick::GameObject *gameObject, kick::Camera * mainCamera, BakeCamera * bakeCamera, kick::MeshRenderer* meshRenderer, std::shared_ptr<DepthBakeArgs> args)
+CameraController::CameraController(kick::GameObject* gameObject, std::shared_ptr<kick::Camera> mainCamera, std::shared_ptr<BakeCamera> bakeCamera, std::shared_ptr<kick::MeshRenderer> meshRenderer, std::shared_ptr<DepthBakeArgs> args)
 	: Component(gameObject), mainCamera(mainCamera), bakeCamera(bakeCamera), meshRenderer(meshRenderer), args(args)
 {
 	elevationRotations = (int)ceil((args->elevationMaxAngle - args->elevationMinAngle) - args->elevationStepSize);
@@ -27,7 +27,7 @@ void CameraController::update() {
 		viewAngle = viewAngles[f];
 		
 		// show plane or rest
-		std::vector<kick::MeshRenderer*> meshes = kick::Engine::activeScene()->findComponents<kick::MeshRenderer>();
+		auto meshes = kick::Engine::activeScene()->findComponents<kick::MeshRenderer>();
 		for (auto m : meshes){
 			bool enabled;
 			if (plane){

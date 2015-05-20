@@ -30,7 +30,7 @@ void convertFromInchesToMeters(Scene* scene, float scale){
 		}
 	}
 
-	std::vector<MeshRenderer*> meshes = scene->findComponents<MeshRenderer>();
+	auto meshes = scene->findComponents<MeshRenderer>();
 	for (auto mr : meshes){ 
 		auto meshData = mr->mesh()->meshData();
 		std::vector<glm::vec3> newPos;
@@ -75,8 +75,8 @@ int main(int argc, char * argv[])
 	convertFromInchesToMeters(scene, scale);
 
 	// Find all mesh renderers and determine bounds
-	std::vector<MeshRenderer*> meshes = scene->findComponents<MeshRenderer>();
-	std::set<Transform*> rootTransforms;
+	auto meshes = scene->findComponents<MeshRenderer>();
+	std::set<std::shared_ptr<Transform>> rootTransforms;
 	for (auto m : meshes){
 		rootTransforms.insert(m->transform()->root());
 	}
@@ -113,14 +113,14 @@ int main(int argc, char * argv[])
 	mainCamera->setFar(arg->cameraRadius*100);
 
     GameObject * gameObject = scene->createGameObject();
-    BakeCamera * bakeCamera = gameObject->addComponent<BakeCamera>(screenWidth, arg->outputPath);
+    std::shared_ptr<BakeCamera> bakeCamera = gameObject->addComponent<BakeCamera>(screenWidth, arg->outputPath);
 	bakeCamera->setLeft(-arg->cameraResolution*0.5f);
 	bakeCamera->setRight(arg->cameraResolution*0.5f);
 	bakeCamera->setTop(arg->cameraResolution*0.5f);
 	bakeCamera->setBottom(-arg->cameraResolution*0.5f);
 	bakeCamera->setNear(0);
 	bakeCamera->setFar(arg->cameraRadius * 100);
-    CameraController * cameraController = gameObject->addComponent<CameraController>(mainCamera, bakeCamera, nullptr, arg);
+    std::shared_ptr<CameraController> cameraController = gameObject->addComponent<CameraController>(mainCamera, bakeCamera, nullptr, arg);
 	bakeCamera->cameraController = cameraController;
 
 	if (arg->viewAngleFile.length() > 0){
@@ -137,7 +137,7 @@ int main(int argc, char * argv[])
 
 	mainCamera->setReplacementMaterial(material);
 
-    MeshRenderer* plane = scene->createCube(nullptr,1.0f);
+    std::shared_ptr<MeshRenderer> plane = scene->createCube(nullptr,1.0f);
     plane->transform()->setLocalScale(glm::vec3(100000.0f,0.0001f,100000.0f));
     
 	cameraController->planeMesh = plane;
