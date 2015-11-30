@@ -1,4 +1,4 @@
-import ReadDepthBakeOutput
+import ReadDepthBakeOutput as RDBO
 import sys
 import os
 import subprocess
@@ -8,17 +8,10 @@ from os.path import isfile, join
 
 argc = len(sys.argv)
 
-depthBakePath = '/Users/mono/Library/Caches/appCode31/DerivedData/DepthBake-71380c64/Build/Products/Release/DepthBake'
-depthBakeCWD = '/Users/mono/Programming/cpp/DepthBake/DepthBake/'
-#depthBakeOutPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/'
-#viewAngleDir = '/Users/mono/Programming/cpp/DepthBake/DepthBake/data'
-#viewAngleFile = '/Users/mono/Programming/cpp/DepthBake/DepthBake/data/btr70_transport_c71.csv'
-#modelFile = '/Users/mono/Programming/cpp/DepthBake/DepthBake/t-62.obj'
+depthBakePath = 'DepthBake.exe'
+depthBakeCWD = os.getcwd()
+dataPath = "Z:/original_images/MSTAR/"
 
-#targetPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/depthbake_hb03333.0015_plane0.raw'
-#planePath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/depthbake_hb03333.0015_plane1.raw'
-dataPath = '/Users/mono/Programming/cpp/DepthBake/DepthBake/Python/Data/MSTAR_PUBLIC_TARGETS_CHIPS_T72_BMP2_BTR70_SLICY/'
-#analysisOutput = '/Users/mono/Programming/cpp/DepthBake/DepthBake/test.png'
 if argc > 1:
     targetPath = sys.argv[1]
 if argc > 2:
@@ -26,35 +19,78 @@ if argc > 2:
 if argc > 3:
     planePath = sys.argv[3]
 
+viewAngleFiles  = [
+#                   "viewAngleFiles/D7_15.csv",
+#                   "viewAngleFiles/D7_17.csv",
+#                   "viewAngleFiles/2S1_15.csv",
+#                   "viewAngleFiles/2S1_17.csv",
+#                   "viewAngleFiles/BMP2_15.csv"]
+                   "viewAngleFiles/BMP2_17.csv"]
+#                   "viewAngleFiles/BRDM2_15.csv",
+#                   "viewAngleFiles/BRDM2_17.csv",
+#                   "viewAngleFiles/BTR60_15.csv",
+#                   "viewAngleFiles/BTR60_17.csv",
+#                   "viewAngleFiles/BTR70.csv"]
+#                   'viewAngleFiles/T62_15.csv',
+#                   'viewAngleFiles/T62_17.csv',
+#                   'viewAngleFiles/ZIL131_15.csv',
+#                   'viewAngleFiles/ZIL131_17.csv',
+#                    'viewAngleFiles/ZSU23_15.csv',
+#                    'viewAngleFiles/ZSU23_17.csv']
+#                    'viewAngleFiles/BMP2_15.csv',
+#                    'viewAngleFiles/BMP2_17.csv',
+#                   "viewAngleFiles/T72_version1_15.csv"]
+#                   "viewAngleFiles/T72_version2_17_test.csv"]
+#                   "viewAngleFiles/T72_version2_15.csv"]
+#                    'viewAngleFiles/test_BTR60.csv']
+                    
+modelFiles      = [
+#                   "Z:\cad_files\MSTAR_Models/D7[mm].obj",
+#                   "Z:\cad_files\MSTAR_Models/2S1[mm].obj",
+                   "Z:\cad_files\MSTAR_Models/BMP2[mm].obj"]
+#                   "Z:\cad_files\MSTAR_Models/BDRM2[mm].obj",
+#                   "Z:\cad_files\MSTAR_Models/BTR60[mm].obj",
+#                   "Z:\cad_files\MSTAR_Models/BTR70[mm].obj"]
+#                   "Z:\cad_files\MSTAR_Models/T62[mm].obj",
+#                   "Z:\cad_files\MSTAR_Models/ZIL131[mm].obj",
+#                   "Z:\cad_files\MSTAR_Models/ZSU23-4[mm].obj",
+#                   "Z:\cad_files\MSTAR_Models/ZSU23-4[mm].obj"]
+#                   "Z:\cad_files\MSTAR_Models/MSTAR_Models/2S1[mm].obj",
+#                   "Z:\cad_files\MSTAR_Models/T72_Version1[mm].obj"]
+#                   "Z:\cad_files\MSTAR_Models/T72_Version2[mm].obj"]
+#                   "Z:\cad_files\MSTAR_Models/BMP2[mm].obj"]
 
-viewAngleFiles = [#"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/bmp2_tank_9563.csv",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/bmp2_tank_9566.csv",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/bmp2_tank_c21.csv",
-              # "/Users/mono/Programming/cpp/DepthBake/DepthBake/data/btr70_transport_c71.csv",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_132.csv", #version 1
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_812.csv", #version 1
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/data/t72_tank_s7.csv" #version 2
-              ]
+depthBakeOutPaths = [
+#                    "output/D7/",
+#                    "output/D7/",
+#                    "output/2S1/",
+#                    "output/2S1/",
+                     "output/BMP2/"]
+#                     "output/BRDM2/",
+#                     "output/BTR60/",
+#                     "output/BTR60/",
+#                     "output/BTR70/"]
+#                     "output/T62/",
+#                     "output/T62/",
+#                     "output/ZIL131/",
+#                     "output/ZIL131/",
+#                     "output/ZSU23/",
+#                     "output/ZSU23/"]
+#                     "output/BMP2/"]
+#                     "output/T72version1/"]
+#                     "output/T72version2/"]
+#                    "output/test2/"]
 
-modelFiles = [#"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/BMP-2.obj",
-              # "/Users/mono/Programming/cpp/DepthBake/DepthBake/models/BTR70.obj",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version1.obj",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version1.obj",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/T72_Version2.obj",
-              ]
 
-depthBakeOutPaths = [#"/Users/mono/Programming/cpp/DepthBake/DepthBake/models/BMP-2.obj",
-              # "/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/btr70_transport_c71/",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_132/",
-              "/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_812/",
-              #"/Users/mono/Programming/cpp/DepthBake/DepthBake/baked-data/t72_tank_s7/",
-              ]
+inputUnits = ["mm"]
 
-inputUnits = ["inch",
-              "inch",
-              #"inch",
-              #"mm",
-              ]
+def RunDepthBake(depthBakeOutPath, viewAngleFile, modelFile, inputUnit):
+    # FNULL = open(os.devnull, 'w')    #use this if you want to suppress output to stdout from the subprocess using stdout=FNULL, stderr=FNULL,
+    if not os.path.exists(depthBakeOutPath):
+        os.makedirs(depthBakeOutPath)
+    args = depthBakePath + " -inputUnit "+inputUnit+" -outputPath " + depthBakeOutPath + " -viewAngleFile " + viewAngleFile + ' '+modelFile
+    print(args)
+    subprocess.call(args, shell=True, cwd=depthBakeCWD)
 
 def AllRunDepthBake():
     for i in range(0,len(viewAngleFiles)):
@@ -66,15 +102,8 @@ def AllRunDepthBake():
         inputUnit = inputUnits[i]
         RunDepthBake(depthBakeOutPath, viewAngleFile, modelFile, inputUnit)
 
-def RunDepthBake(depthBakeOutPath, viewAngleFile, modelFile, inputUnit):
-    # FNULL = open(os.devnull, 'w')    #use this if you want to suppress output to stdout from the subprocess using stdout=FNULL, stderr=FNULL,
-    args = depthBakePath + " -inputUnit "+inputUnit+" -outputPath " + depthBakeOutPath + " -viewAngleFile " + viewAngleFile + ' '+modelFile
-    print(args)
-    subprocess.call(args, shell=True, cwd=depthBakeCWD)
-
 def Analyze(fileMapping):
     for i in range(0,len(depthBakeOutPaths)):
-        print("Analyze "+viewAngleFiles[i])
         with open(viewAngleFiles[i], 'rb') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             first = True
@@ -83,16 +112,16 @@ def Analyze(fileMapping):
                     first = False
                     continue
                 filename = row[0].strip()
-                targetAz = float(row[1].strip())
-                MeasuredDepression = float(row[2].strip())
+#                targetAz = float(row[1].strip())
+#                MeasuredDepression = float(row[2].strip())
                 if (fileMapping.has_key(filename.lower())):
                     dataPath = fileMapping[filename.lower()]
-                    ReadDepthBakeOutput.ReadDepthBakeOutput(depthBakeOutPaths[i]+"depthbake_"+filename.lower()+"_plane0.raw", depthBakeOutPaths[i]+"depthbake_"+filename.lower()+"_plane1.raw", dataPath, depthBakeOutPaths[i]+filename)
+                    RDBO.ReadDepthBakeOutput(depthBakeOutPaths[i]+"depthbake_"+filename+"_plane0.raw", depthBakeOutPaths[i]+"depthbake_"+filename+"_plane1.raw", dataPath, depthBakeOutPaths[i]+filename)
                 else:
                     print("Could not find "+filename.lower())
 
 def filenameToPath(path):
-    res = dict()
+    res = dict()    
     for f in listdir(path):
         fullFilePath = join(path,f)
         if isfile(fullFilePath):
@@ -104,28 +133,10 @@ def filenameToPath(path):
                 res[k] = subres[k]
     return res
 
-def svnFiles():
-    res = [ f for f in listdir(viewAngleDir) if isfile(join(viewAngleDir,f))]
-    for i in range(0,len(res)):
-        res[i] = join(viewAngleDir,res[i])
-    return res
-
 fileMapping = filenameToPath(dataPath)
+for i in range(len(viewAngleFiles)):
+    RunDepthBake(depthBakeOutPaths[i], viewAngleFiles[i], modelFiles[i], inputUnits[0])
 
-# modify filemapping
-#for k in fileMapping.keys():
-#    modKey = k[:len(k)-3] +"0"+ k[len(k)-3:]
-#    fileMapping[modKey] = fileMapping[k]
-
-#print("File mappings")
-#for k in fileMapping.keys():
-#        print(k + "\t"+fileMapping[k])
-#print("File mappings end")
-
-#ReadDepthBakeOutput.ReadDepthBakeOutput(targetPath, planePath, fileMapping["HB03333.0015"], targetPath+".png")
-
-#AllRunDepthBake()
-#RunDepthBake()
 Analyze(fileMapping)
 
 #
